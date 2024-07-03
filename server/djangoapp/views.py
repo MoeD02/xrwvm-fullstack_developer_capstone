@@ -95,7 +95,9 @@ def get_dealer_reviews(request, dealer_id):
     if(dealer_id):
         endpoint = "/fetchReviews/dealer/"+str(dealer_id)
         reviews = get_request(endpoint)
+        print("USER ID IS: "+str(dealer_id))
         for review_detail in reviews:
+            print("IM HEEEEEEERRRREEEE")
             response = analyze_review_sentiments(review_detail['review'])
             print(response)
             review_detail['sentiment'] = response['sentiment']
